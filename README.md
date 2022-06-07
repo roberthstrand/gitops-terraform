@@ -1,1 +1,1 @@
-# gitops-terraform
+# GitOps and Terraform
