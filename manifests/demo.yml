@@ -7,10 +7,9 @@ spec:
   interval: 5m0s
   path: ./terraform/vm
   runnerPodTemplate:
-    metadata: {}
     spec:
       envFrom:
-        - kind: Secret
+        secretRef:
           name: "azure-credentials"
   varsFrom:
     - kind: Secret
