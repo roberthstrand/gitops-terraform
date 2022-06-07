@@ -20,7 +20,7 @@ resource "azurerm_subnet" "subnet" {
 
 module "vm" {
   source  = "crayon/vm/azurerm"
-  version = "1.11.0"
+  version = "1.13.3"
 
   name           = format("vm%s", var.name)
   resource_group = azurerm_resource_group.vm.name
@@ -38,6 +38,16 @@ module "vm" {
     username = "crayonadm"
     password = var.vm_password
   }
+
+  data_disks = [{
+    name                 = "disk01"
+    storage_account_type = "Standard_LRS"
+    create_option        = "Empty"
+    caching              = "ReadWrite"
+    lun                  = 10
+    disk_size_gb         = 50
+    additional_settings  = {}
+  }]
 
   depends_on = [
     azurerm_resource_group.vm
