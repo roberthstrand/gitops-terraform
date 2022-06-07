@@ -2,6 +2,7 @@ apiVersion: infra.contrib.fluxcd.io/v1alpha1
 kind: Terraform
 metadata:
   name: demovm01
+  namespace: flux-system
 spec:
   interval: 5m0s
   path: ./terraform/vm
