@@ -9,7 +9,21 @@ spec:
   runnerPodTemplate:
     spec:
       env:
-      - name: azure-credentials
+      - name: ARM_CLIENT_ID
+        valueFrom:
+          secretKeyRef:
+            name: azure-credentials
+            key: ARM_CLIENT_ID
+      - name: ARM_CLIENT_SECRET
+        valueFrom:
+          secretKeyRef:
+            name: azure-credentials
+            key: ARM_CLIENT_SECRET
+      - name: ARM_SUBSCRIPTION_ID
+        valueFrom:
+          secretKeyRef:
+            name: azure-credentials
+            key: ARM_SUBSCRIPTION_ID
   varsFrom:
     - kind: Secret
       name: "vmvariables"
