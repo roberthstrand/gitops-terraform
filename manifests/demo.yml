@@ -1,0 +1,19 @@
+apiVersion: infra.contrib.fluxcd.io/v1alpha1
+kind: Terraform
+metadata:
+  name: demovm01
+spec:
+  interval: 5m0s
+  path: ./terraform/vm
+  runnerPodTemplate:
+    metadata: {}
+    spec:
+      envFrom:
+        - kind: Secret
+          name: "azure-credentials"
+  varsFrom:
+    - kind: Secret
+      name: "vmvariables"
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
