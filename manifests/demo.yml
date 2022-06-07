@@ -9,8 +9,7 @@ spec:
   runnerPodTemplate:
     spec:
       envFrom:
-        secretRef:
-          name: "azure-credentials"
+        - "azure-credentials"
   varsFrom:
     - kind: Secret
       name: "vmvariables"
