@@ -8,9 +8,8 @@ spec:
   path: ./terraform/vm
   runnerPodTemplate:
     spec:
-      envFrom:
-        secretRef:
-        - name: azure-credentials
+      env:
+      - name: azure-credentials
   varsFrom:
     - kind: Secret
       name: "vmvariables"
