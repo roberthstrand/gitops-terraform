@@ -51,6 +51,7 @@ module "vm" {
 
   tags = {
     "source" = "terraform"
+    "hello"  = "GitOpsDays2022"
   }
 
   depends_on = [
