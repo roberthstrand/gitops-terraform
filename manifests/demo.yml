@@ -1,38 +1,38 @@
-# apiVersion: infra.contrib.fluxcd.io/v1alpha1
-# kind: Terraform
-# metadata:
-#   name: demovm01
-#   namespace: flux-system
-# spec:
-#   interval: 1m0s
-#   path: ./terraform/generic-vm
-#   runnerPodTemplate:
-#     spec:
-#       image: ghcr.io/roberthstrand/tf-az-runner:latest
-#       env:
-#       - name: ARM_CLIENT_ID
-#         valueFrom:
-#           secretKeyRef:
-#             name: azure-credentials
-#             key: ARM_CLIENT_ID
-#       - name: ARM_CLIENT_SECRET
-#         valueFrom:
-#           secretKeyRef:
-#             name: azure-credentials
-#             key: ARM_CLIENT_SECRET
-#       - name: ARM_SUBSCRIPTION_ID
-#         valueFrom:
-#           secretKeyRef:
-#             name: azure-credentials
-#             key: ARM_SUBSCRIPTION_ID
-#       - name: ARM_TENANT_ID
-#         valueFrom:
-#           secretKeyRef:
-#             name: azure-credentials
-#             key: ARM_TENANT_ID
-#   varsFrom:
-#     - kind: Secret
-#       name: "vmvariables"
-#   sourceRef:
-#     kind: GitRepository
-#     name: flux-system
+apiVersion: infra.contrib.fluxcd.io/v1alpha1
+kind: Terraform
+metadata:
+  name: demovm01
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  path: ./terraform/generic-vm
+  runnerPodTemplate:
+    spec:
+      image: ghcr.io/roberthstrand/tf-az-runner:latest
+      env:
+      - name: ARM_CLIENT_ID
+        valueFrom:
+          secretKeyRef:
+            name: azure-credentials
+            key: ARM_CLIENT_ID
+      - name: ARM_CLIENT_SECRET
+        valueFrom:
+          secretKeyRef:
+            name: azure-credentials
+            key: ARM_CLIENT_SECRET
+      - name: ARM_SUBSCRIPTION_ID
+        valueFrom:
+          secretKeyRef:
+            name: azure-credentials
+            key: ARM_SUBSCRIPTION_ID
+      - name: ARM_TENANT_ID
+        valueFrom:
+          secretKeyRef:
+            name: azure-credentials
+            key: ARM_TENANT_ID
+  varsFrom:
+    - kind: Secret
+      name: "vmvariables"
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
