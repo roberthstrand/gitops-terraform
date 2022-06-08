@@ -8,6 +8,7 @@ spec:
   path: ./terraform/generic-vm
   runnerPodTemplate:
     spec:
+      image: ghcr.io/roberthstrand/tf-az-runner:latest
       env:
       - name: ARM_CLIENT_ID
         valueFrom:
