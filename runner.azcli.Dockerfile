@@ -13,6 +13,11 @@ FROM ghcr.io/weaveworks/tf-runner:v0.9.5
 
 USER root
 
+WORKDIR /sbin/
+
+COPY entrypoint.sh entrypoint.sh
+RUN chmod +x entrypoint.sh
+
 RUN apk add --update --no-cache \
     python3 \
     py3-pip \
@@ -22,7 +27,4 @@ RUN apk add --update --no-cache \
 
 USER controller
 
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
-ENTRYPOINT [ "/sbin/tini", "--", "/entrypoint.sh" ]
+ENTRYPOINT [ "/sbin/tini", "--", "/sbin/entrypoint.sh" ]
