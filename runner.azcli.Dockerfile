@@ -23,4 +23,5 @@ RUN apk add --update --no-cache \
 USER controller
 
 COPY entrypoint.sh entrypoint.sh
-ENTRYPOINT [ "/sbin/tini", "--", "/entrypoint.sh" ]
+RUN chmod +x entrypoint.sh
+ENTRYPOINT [ "/sbin/tini", "--", "entrypoint.sh" ]
