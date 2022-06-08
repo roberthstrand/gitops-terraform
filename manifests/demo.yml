@@ -4,7 +4,7 @@ metadata:
   name: demovm01
   namespace: flux-system
 spec:
-  interval: 5m0s
+  interval: 1m0s
   path: ./terraform/generic-vm
   runnerPodTemplate:
     spec:
