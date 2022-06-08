@@ -21,4 +21,6 @@ RUN apk add --update --no-cache \
     && pip install --upgrade pip && pip install azure-cli
 
 USER controller
-ENTRYPOINT [ "/sbin/tini", "--", "az login --service-principal -u $ARM_CLIENT_ID -p $ARM_CLIENT_SECRET --tenant $ARM_TENANT_ID && tf-runner" ]
+
+COPY entrypoint.sh entrypoint.sh
+ENTRYPOINT [ "/sbin/tini", "--", "/entrypoint.sh" ]
