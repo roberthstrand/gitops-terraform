@@ -1,0 +1,20 @@
+apiVersion: infra.contrib.fluxcd.io/v1alpha1
+kind: Terraform
+metadata:
+  name: greet-gitopsdays
+  namespace: flux-system
+spec:
+  interval: 1m
+  approvePlan: "auto"
+  path: ./terraform/greetings
+  vars:
+  - name: greeting
+    value: "Salutations"
+  - name: subject
+    value: "GitOps Days 2022"
+  writeOutputsToSecret:
+    name: gitopsdays-output
+  sourceRef:
+    kind: GitRepository
+    name: helloworld
+    namespace: flux-system
