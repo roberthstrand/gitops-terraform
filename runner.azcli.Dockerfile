@@ -12,8 +12,8 @@ FROM ghcr.io/weaveworks/tf-runner:v0.9.5
 #     && rm -rf /var/cache/apk/*
 
 USER root
-COPY entrypoint.sh entrypoint.sh
-RUN chmod +x entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 RUN apk add --update --no-cache \
     python3 \
@@ -24,4 +24,4 @@ RUN apk add --update --no-cache \
 
 USER controller
 
-ENTRYPOINT [ "/sbin/tini", "--", "entrypoint.sh" ]
+ENTRYPOINT [ "/sbin/tini", "--", "/entrypoint.sh" ]
