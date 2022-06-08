@@ -27,4 +27,4 @@ RUN apk add --update --no-cache \
 
 USER controller
 
-ENTRYPOINT [ "/sbin/tini", "--", "/sbin/entrypoint.sh" ]
+ENTRYPOINT ["/sbin/entrypoint.sh" ]
