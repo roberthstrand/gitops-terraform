@@ -15,7 +15,7 @@ USER root
 
 WORKDIR /sbin/
 
-COPY entrypoint.sh entrypoint.sh
+COPY entrypoint.sh /sbin/entrypoint.sh
 RUN chmod +x entrypoint.sh
 
 RUN apk add --update --no-cache \
