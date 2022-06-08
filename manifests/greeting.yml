@@ -16,5 +16,5 @@ spec:
     name: gitopsdays-output
   sourceRef:
     kind: GitRepository
-    name: helloworld
+    name: flux-system
     namespace: flux-system
