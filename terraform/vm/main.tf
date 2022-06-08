@@ -49,6 +49,10 @@ module "vm" {
     additional_settings  = {}
   }]
 
+  tags = {
+    "source" = "terraform"
+  }
+
   depends_on = [
     azurerm_resource_group.vm
   ]
