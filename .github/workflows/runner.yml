@@ -8,7 +8,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: "tf-az-runner"
+  IMAGE_NAME: "roberthstrand/tf-az-runner"
 
 jobs:
   build:
@@ -39,5 +39,5 @@ jobs:
           context: .
           file: runner.azcli.Dockerfile
           push: true
-          tags: ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           labels: ${{ steps.meta.outputs.labels }}
