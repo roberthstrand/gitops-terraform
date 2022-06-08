@@ -20,5 +20,5 @@ RUN apk add --update --no-cache \
     && rm -rf /var/cache/apk/* \
     && pip install --upgrade pip && pip install azure-cli
 
-USER controller 
-ENTRYPOINT [ "/sbin/tini", "--", "tf-runner" ]
+USER controller
+ENTRYPOINT [ "/sbin/tini", "--", "az login --service-principal -u $ARM_CLIENT_ID -p $ARM_CLIENT_SECRET --tenant $ARM_TENANT_ID && tf-runner" ]
