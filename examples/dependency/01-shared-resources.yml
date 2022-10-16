@@ -12,6 +12,9 @@ spec:
     value: "demo-dependency"
   - name: location
     value: "West Europe"
+  envFrom:
+    - kind: Secret
+      name: azure-credentials
   writeOutputsToSecret:
     name: shared-resources-output
   sourceRef:
