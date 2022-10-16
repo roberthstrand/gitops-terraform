@@ -3,6 +3,6 @@
     "editor.formatOnSave": true
   },
   "conventionalCommits.scopes": [
-    "example01"
+    "ex-dependency"
   ]
 }
