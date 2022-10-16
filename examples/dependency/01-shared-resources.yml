@@ -12,7 +12,7 @@ spec:
     value: "demo-dependency"
   - name: location
     value: "West Europe"
-  envFrom:
+  varsFrom:
     - kind: Secret
       name: azure-credentials
   writeOutputsToSecret:
