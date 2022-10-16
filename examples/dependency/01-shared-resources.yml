@@ -2,7 +2,7 @@ apiVersion: infra.contrib.fluxcd.io/v1alpha1
 kind: Terraform
 metadata:
   name: shared-resources
-  namespace: example-dependencies
+  namespace: flux-system
 spec:
   interval: 5m
   approvePlan: "auto"
