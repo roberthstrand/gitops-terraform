@@ -12,9 +12,6 @@ spec:
     value: "demo-dependency"
   - name: location
     value: "West Europe"
-  varsFrom:
-    - kind: Secret
-      name: azure-credentials
   writeOutputsToSecret:
     name: shared-resources-output
   sourceRef:
