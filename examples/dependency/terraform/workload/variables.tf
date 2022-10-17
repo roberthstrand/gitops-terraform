@@ -15,7 +15,7 @@ variable "resource_group_name" {
 
 variable "subnet_id" {
   description = "The ID of the subnet that the vm will use."
-  type        = string
+  type        = set(string)
 }
 
 variable "admin_password" {
