@@ -8,6 +8,7 @@ resource "azurerm_network_interface" "vm01" {
     subnet_id                     = var.subnet_id
     private_ip_address_allocation = "Dynamic"
   }
+  tags = local.tags
 }
 
 resource "azurerm_linux_virtual_machine" "example" {
@@ -32,4 +33,5 @@ resource "azurerm_linux_virtual_machine" "example" {
     sku       = "16.04-LTS"
     version   = "latest"
   }
+  tags = local.tags
 }
