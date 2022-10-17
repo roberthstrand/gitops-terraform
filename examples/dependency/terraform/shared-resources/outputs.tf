@@ -1,5 +1,5 @@
 output "subnet_id" {
-  value = azurerm_subnet.base.id
+  value = azurerm_virtual_network.base.subnets[0].id
 }
 
 output "resource_group_name" {
