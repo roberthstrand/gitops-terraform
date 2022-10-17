@@ -5,7 +5,7 @@ resource "azurerm_network_interface" "vm01" {
 
   ip_configuration {
     name                          = "internal"
-    subnet_id                     = var.subnet_id[0]
+    subnet_id                     = var.subnet_id
     private_ip_address_allocation = "Dynamic"
   }
   tags = local.tags
