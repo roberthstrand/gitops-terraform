@@ -12,12 +12,14 @@ resource "azurerm_network_interface" "vm01" {
 }
 
 resource "azurerm_linux_virtual_machine" "example" {
-  name                = format("vm%s%s", var.deployment_name, local.location)
-  resource_group_name = var.resource_group_name
-  location            = var.location
-  size                = "Standard_F2"
-  admin_username      = "adminuser"
-  admin_password      = var.admin_password
+  name                            = format("vm%s%s", var.deployment_name, local.location)
+  resource_group_name             = var.resource_group_name
+  location                        = var.location
+  size                            = "Standard_F2"
+  admin_username                  = "adminuser"
+  admin_password                  = var.admin_password
+  disable_password_authentication = false
+
   network_interface_ids = [
     azurerm_network_interface.vm01.id,
   ]
