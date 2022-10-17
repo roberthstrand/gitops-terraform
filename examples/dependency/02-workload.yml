@@ -26,8 +26,8 @@ spec:
     - as: shared_resources
       name: shared-resources-output
   values:
-    subnet_id: "{{ $.shared_resources.subnet_id }}"
-    resource_group_name: "{{ $.shared_resources.resource_group_name }}"
+    subnet_id: "${{ .shared_resources.subnet_id }}"
+    resource_group_name: "${{ .shared_resources.resource_group_name }}"
   sourceRef:
     kind: GitRepository
     name: flux-system
