@@ -16,7 +16,7 @@ spec:
     namespace: flux-system
   vars:
   - name: deployment_name
-    value: "demo-dependency"
+    value: "demodep"
   - name: location
     value: "West Europe"
   varsFrom:
