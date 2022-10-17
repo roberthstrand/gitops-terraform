@@ -1,0 +1,34 @@
+apiVersion: infra.contrib.fluxcd.io/v1alpha1
+kind: Terraform
+metadata:
+  name: workload01
+  namespace: flux-system
+spec:
+  interval: 5m
+  approvePlan: "auto"
+  path: ./examples/dependency/terraform/workload
+  dependsOn:
+    - name: shared-resources
+  backendConfig:
+    disable: true
+  cliConfigSecretRef:
+    name: tfe-cli-config
+    namespace: flux-system
+  vars:
+  - name: deployment_name
+    value: "demo-dependency"
+  - name: location
+    value: "West Europe"
+  varsFrom:
+    - kind: Secret
+      name: workload-secrets
+  readInputsFromSecrets:
+    - as: shared_resources
+      name: shared-resources-output
+  values:
+    subnet_id: "{{ $.shared_resources.subnet_id }}"
+    resource_group_name: "{{ $.shared_resources.resource_group_name }}"
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
