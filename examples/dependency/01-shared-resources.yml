@@ -14,7 +14,7 @@ spec:
     namespace: flux-system
   vars:
   - name: deployment_name
-    value: "demo-dependency"
+    value: "demo-dep"
   - name: location
     value: "West Europe"
   writeOutputsToSecret:
