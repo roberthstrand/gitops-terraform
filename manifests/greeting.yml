@@ -1,7 +1,7 @@
 apiVersion: infra.contrib.fluxcd.io/v1alpha1
 kind: Terraform
 metadata:
-  name: greet-gitopsdays
+  name: greet-folks
   namespace: flux-system
 spec:
   interval: 1m
@@ -11,9 +11,9 @@ spec:
   - name: greeting
     value: "Salutations"
   - name: subject
-    value: "GitOps Days 2022"
+    value: "folks"
   writeOutputsToSecret:
-    name: gitopsdays-output
+    name: greeting-output
   sourceRef:
     kind: GitRepository
     name: flux-system
