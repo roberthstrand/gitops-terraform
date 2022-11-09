@@ -1,0 +1,25 @@
+apiVersion: infra.contrib.fluxcd.io/v1alpha1
+kind: Terraform
+metadata:
+  name: shared-resources
+  namespace: flux-system
+spec:
+  interval: 5m
+  approvePlan: "auto"
+  path: ./examples/dependency/terraform/shared-resources
+  backendConfig:
+    disable: true
+  cliConfigSecretRef:
+    name: tfe-cli-config
+    namespace: flux-system
+  vars:
+  - name: deployment_name
+    value: "demo-dep"
+  - name: location
+    value: "West Europe"
+  writeOutputsToSecret:
+    name: shared-resources-output
+  sourceRef:
+    kind: GitRepository
+    name: dependency-demo
+    namespace: flux-system

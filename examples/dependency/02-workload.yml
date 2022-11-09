@@ -1,0 +1,30 @@
+apiVersion: infra.contrib.fluxcd.io/v1alpha1
+kind: Terraform
+metadata:
+  name: workload01
+  namespace: flux-system
+spec:
+  interval: 5m
+  approvePlan: "auto"
+  path: ./examples/dependency/terraform/workload
+  dependsOn:
+    - name: shared-resources
+  backendConfig:
+    disable: true
+  cliConfigSecretRef:
+    name: tfe-cli-config
+    namespace: flux-system
+  vars:
+  - name: deployment_name
+    value: "demodep"
+  - name: location
+    value: "West Europe"
+  varsFrom:
+    - kind: Secret
+      name: workload-secrets
+    - kind: Secret
+      name: shared-resources-output
+  sourceRef:
+    kind: GitRepository
+    name: dependency-demo
+    namespace: flux-system
