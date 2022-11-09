@@ -21,5 +21,5 @@ spec:
     name: shared-resources-output
   sourceRef:
     kind: GitRepository
-    name: dependency-demo
+    name: flux-system
     namespace: flux-system
