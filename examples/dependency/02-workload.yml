@@ -4,7 +4,7 @@ metadata:
   name: workload01
   namespace: flux-system
 spec:
-  interval: 5m
+  interval: 1m
   approvePlan: "auto"
   path: ./examples/dependency/terraform/workload
   dependsOn:
