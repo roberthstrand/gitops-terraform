@@ -48,4 +48,3 @@ spec:
     awsPackage:
       install: true
       tag: v4.38.0-v1alpha11
-
