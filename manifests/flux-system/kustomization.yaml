@@ -4,4 +4,4 @@ resources:
 - gotk-components.yaml
 - gotk-sync.yaml
 - tf-controller.yaml
-- examples.yaml
+# - examples.yaml
